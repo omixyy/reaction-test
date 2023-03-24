@@ -119,7 +119,7 @@ class Target:
         self.diff = 0
         self.moment_start, self.moment_end = None, None
 
-    #
+    # Метод, создающий новую мишень
     def create_new_target(self, x, y, diff):
         self.diff = diff
         self.oval = self.canvas.create_oval(
@@ -160,8 +160,9 @@ class Target:
                 self.canvas.create_text(410, 150, text=show_text, fill='cornsilk', font=('Helvetica', 30))
                 self.button_exit = tkinter.Button(
                     self.master, text='Exit', height=1, width=9, font=('Helvetica', 20),
-                    command=sys.exit, bg='rosy brown', fg='cornsilk'
-                )
+                    command=sys.exit, bg='rosy brown', fg='cornsilk')
+                
+                # Проверка на новыйй лучший результат
                 with open('best_result.json', 'r') as jsonf:
                     reader = json.load(jsonf)
                     with open('best_result.json', 'w') as jsfile:
